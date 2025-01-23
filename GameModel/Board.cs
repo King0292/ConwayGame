@@ -22,6 +22,9 @@ namespace Lifegame.GameModel
 
         public void Relleno()
         {
+            // Instancia random
+            Random random = new Random();
+
             // Declaración de la cuadrícula
             int[,] grid = new int[filas, columnas];
 
@@ -30,7 +33,7 @@ namespace Lifegame.GameModel
             {
                 for (int j = 0; j < columnas; j++)
                 {
-                    grid[i, j] = 0; // Asigna 0 a cada celda
+                    grid[i, j] = random.Next(2); // Asigna 0 a cada celda
                 }
             }
 
@@ -39,7 +42,11 @@ namespace Lifegame.GameModel
             {
                 for (int j = 0; j < columnas; j++)
                 {
-                    Console.Write(grid[i, j] + " ");
+                    if (grid[i,j] == 1)
+                    {
+                        Console.Write("█");
+                    }
+                    Console.Write(" ");
                 }
                 Console.WriteLine(); // Salto de línea para cada fila
             }
