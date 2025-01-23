@@ -1,0 +1,22 @@
+# Archivos de compilación
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# Configuración del entorno de desarrollo
+.vscode/
+.vs/
+.idea/
+*.suo
+*.user
+*.cache
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Configuración sensible (si usas .NET Core)
+appsettings.json
+secrets.json
