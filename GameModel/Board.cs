@@ -1,33 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 
 namespace Lifegame.GameModel
 {
     internal class Board
     {
-        public int Altura { get; set; }
-        public int Ancho { get; set; }
-        private ConsoleColor Color { get; set; }
-        public Point LimiteSuperior { get; set; } // Limite para el dibujo del cuadro superior
-        public Point LimiteInferior {  get; set; } // Limite para el dibujo del cuadro inferior
+        public int filas {  get; set; }
+        public int columnas { get; set; }
         
-        public Board(int ancho, int altura, ConsoleColor color)
+        // Constructor
+        public Board(int Filas, int Columnas)
         {
-            Altura = altura;
-            Ancho = ancho;
-            Color = color;
+            filas = Filas;
+            columnas = Columnas;
+            Relleno();
         }
-        private void Init()
-        {
-            Console.SetWindowSize(Ancho, Altura);
-            Console.Title = "Juego de Vida";
-            Console.BackgroundColor = Color;
-            Console.Clear();
 
+        public void Relleno()
+        {
+            // Declaración de la cuadrícula
+            int[,] grid = new int[filas, columnas];
+
+            // Llenado del arreglo
+            for (int i = 0; i < filas; i++)
+            {
+                for (int j = 0; j < columnas; j++)
+                {
+                    grid[i, j] = 0; // Asigna 0 a cada celda
+                }
+            }
+
+            // Mostrar el contenido del arreglo
+            for (int i = 0; i < filas; i++)
+            {
+                for (int j = 0; j < columnas; j++)
+                {
+                    Console.Write(grid[i, j] + " ");
+                }
+                Console.WriteLine(); // Salto de línea para cada fila
+            }
         }
     }
 }
