@@ -15,7 +15,7 @@ namespace Lifegame.GameModel
         private bool Siguiente_Celula_Viva; // Campo para determinar la siguiente celula viva
 
         // Metodo para aplicar las reglas del juego
-        public void Reglas()
+        public void Reglas() // Aplicando las reglas del juego
         {
             //Una celda viva con menos de 2 vecinos vivos muere.
             //Una celda viva con 2 o 3 vecinos vivos sigue viva.

@@ -23,20 +23,24 @@ namespace Lifegame.GameModel
             filas = Filas;
             columnas = Columnas;
             grid = new Cells[ Filas, Columnas];
+            Console.CursorVisible = false;
+            Console.Title = "Juego de Vida";
+            IniciarVida();
+            AsignarVecinos();
         }
 
-        public void IniciarVida()
+        public void IniciarVida() // Asignar celulas vivas
         {
             for(int i = 0; i < filas; i++)
             {
                 for(int j = 0; j < columnas; j++)
                 {
-                    grid[i, j] = new Cells { C_Viva = random.Next(2) == 1 }; // Asignar celular vivas
+                    grid[i, j] = new Cells { C_Viva = random.Next(2) == 1 }; 
                 }
             }
         }
 
-        public void AsignarVecinos()
+        public void AsignarVecinos() 
         {
             int[] desplazamiento = { -1, 0, 1 };
 
@@ -50,7 +54,7 @@ namespace Lifegame.GameModel
             }
         }
 
-        private List<Cells> ObtenerVecinos(int x, int y, int[] desplazamieto)
+        private List<Cells> ObtenerVecinos(int x, int y, int[] desplazamieto) // Obtener las celulas vecinas
         {
             List<Cells> List_Vecinos = new List<Cells>();
 
@@ -73,7 +77,7 @@ namespace Lifegame.GameModel
 
             return List_Vecinos;
         }
-        public void SiguienteGeneracion() 
+        public void SiguienteGeneracion() // Calcular quien muere o sigue vivo
         {
             foreach(var celula in grid)
             {
@@ -82,6 +86,18 @@ namespace Lifegame.GameModel
             foreach(var celula in grid)
             {
                 celula.Avance();
+            }
+        }
+        public void Pintar() // Pintar en consola
+        {
+            Console.Clear();
+            for (int i = 0; i < filas; i++)
+            {
+                for (int j = 0; j < columnas; j++)
+                {
+                    Console.Write(grid[i, j].C_Viva ? "█" : " "); // Caracter para cada tipo de celula
+                }
+                Console.WriteLine(); // Salto de filas
             }
         }
     }
