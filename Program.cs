@@ -1,6 +1,6 @@
 ﻿using Lifegame.GameModel;
 
-Board board = new Board(20, 50);
+Board board = new Board(Filas:25, Columnas:70); // Asignar un tamaño a la tabla
 while (true)
 {
     board.Pintar();             // Dibujar el tablero en la consola

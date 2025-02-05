@@ -95,7 +95,7 @@ namespace Lifegame.GameModel
             {
                 for (int j = 0; j < columnas; j++)
                 {
-                    Console.Write(grid[i, j].C_Viva ? "█" : " "); // Caracter para cada tipo de celula
+                    Console.Write(grid[i, j].C_Viva ? "█" : " "); // Caracter █ para celulas vivas y " " para las muertas
                 }
                 Console.WriteLine(); // Salto de filas
             }
